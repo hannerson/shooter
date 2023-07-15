@@ -70,7 +70,7 @@ DOWNLOADER_MIDDLEWARES = {
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    "shooter.pipelines.ShooterPipeline": 300,
-   "shooter.pipelines.MacroDataPipeline": 200
+   "shooter.pipelines.MysqlPipeline": 200
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

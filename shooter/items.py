@@ -12,13 +12,17 @@ class ShooterItem(scrapy.Item):
     pass
 
 class MacroPubNoticeItem(scrapy.Item):
+    table_name = scrapy.Field()
     publish_date = scrapy.Field()
     content = scrapy.Field()
+    publish_datetime = scrapy.Field()
     pass
 
 class MacroStatDataItem(scrapy.Item):
+    table_name = scrapy.Field()
     name = scrapy.Field()
     type = scrapy.Field()
+    stype = scrapy.Field()
     stat_type = scrapy.Field()
     stat_date = scrapy.Field()
     value = scrapy.Field()

@@ -1,6 +1,7 @@
 {
     "A01010101": {
         "type": 1,
+        "stype": 1,
         "stat_type": 4,
         "tname": "上年同月",
         "code": "CPI",
@@ -9,14 +10,79 @@
     },
     "A01010102": {
         "type": 1,
+        "stype": 2,
         "stat_type": 4,
         "tname": "上年同月",
         "code": "CPI",
         "name": "居民消费价格指数",
         "subname": "食品烟酒类"
     },
+    "A01010103": {
+        "type": 1,
+        "stype": 3,
+        "stat_type": 4,
+        "tname": "上年同月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "衣着类"
+    },
+    "A01010104": {
+        "type": 1,
+        "stype": 4,
+        "stat_type": 4,
+        "tname": "上年同月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "居住类"
+    },
+    "A01010105": {
+        "type": 1,
+        "stype": 5,
+        "stat_type": 4,
+        "tname": "上年同月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "生活用品及服务类"
+    },
+    "A01010106": {
+        "type": 1,
+        "stype": 6,
+        "stat_type": 4,
+        "tname": "上年同月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "交通和通信类"
+    },
+    "A01010107": {
+        "type": 1,
+        "stype": 7,
+        "stat_type": 4,
+        "tname": "上年同月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "教育文化和娱乐类"
+    },
+    "A01010108": {
+        "type": 1,
+        "stype": 8,
+        "stat_type": 4,
+        "tname": "上年同月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "医疗保健类"
+    },
+    "A01010109": {
+        "type": 1,
+        "stype": 9,
+        "stat_type": 4,
+        "tname": "上年同月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "其他用品和服务类"
+    },
     "A01020101": {
         "type": 1,
+        "stype": 1,
         "stat_type": 5,
         "tname": "上年同期",
         "code": "CPI",
@@ -25,14 +91,79 @@
     },
     "A01020102": {
         "type": 1,
+        "stype": 2,
         "stat_type": 5,
         "tname": "上年同期",
         "code": "CPI",
         "name": "居民消费价格指数",
         "subname": "食品烟酒类"
     },
+    "A01020103": {
+        "type": 1,
+        "stype": 3,
+        "stat_type": 5,
+        "tname": "上年同期",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "衣着类"
+    },
+    "A01020104": {
+        "type": 1,
+        "stype": 4,
+        "stat_type": 5,
+        "tname": "上年同期",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "居住类"
+    },
+    "A01020105": {
+        "type": 1,
+        "stype": 5,
+        "stat_type": 5,
+        "tname": "上年同期",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "生活用品及服务类"
+    },
+    "A01020106": {
+        "type": 1,
+        "stype": 6,
+        "stat_type": 5,
+        "tname": "上年同期",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "交通和通信类"
+    },
+    "A01020107": {
+        "type": 1,
+        "stype": 7,
+        "stat_type": 5,
+        "tname": "上年同期",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "教育文化和娱乐类"
+    },
+    "A01020108": {
+        "type": 1,
+        "stype": 8,
+        "stat_type": 5,
+        "tname": "上年同期",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "医疗保健类"
+    },
+    "A01020109": {
+        "type": 1,
+        "stype": 9,
+        "stat_type": 5,
+        "tname": "上年同期",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "其他用品和服务类"
+    },
     "A01030101": {
         "type": 1,
+        "stype": 1,
         "stat_type": 6,
         "tname": "上月",
         "code": "CPI",
@@ -41,14 +172,79 @@
     },
     "A01030102": {
         "type": 1,
+        "stype": 2,
         "stat_type": 6,
         "tname": "上月",
         "code": "CPI",
         "name": "居民消费价格指数",
         "subname": "食品烟酒类"
     },
+    "A01030103": {
+        "type": 1,
+        "stype": 3,
+        "stat_type": 6,
+        "tname": "上月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "衣着类"
+    },
+    "A01030104": {
+        "type": 1,
+        "stype": 4,
+        "stat_type": 6,
+        "tname": "上月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "居住类"
+    },
+    "A01030105": {
+        "type": 1,
+        "stype": 5,
+        "stat_type": 6,
+        "tname": "上月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "生活用品及服务类"
+    },
+    "A01030106": {
+        "type": 1,
+        "stype": 6,
+        "stat_type": 6,
+        "tname": "上月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "交通和通信类"
+    },
+    "A01030107": {
+        "type": 1,
+        "stype": 7,
+        "stat_type": 6,
+        "tname": "上月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "教育文化和娱乐类"
+    },
+    "A01030108": {
+        "type": 1,
+        "stype": 8,
+        "stat_type": 6,
+        "tname": "上月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "医疗保健类"
+    },
+    "A01030109": {
+        "type": 1,
+        "stype": 9,
+        "stat_type": 6,
+        "tname": "上月",
+        "code": "CPI",
+        "name": "居民消费价格指数",
+        "subname": "其他用品和服务类"
+    },
     "A01070101": {
         "type": 2,
+        "stype": 1,
         "stat_type": 4,
         "tname": "上年同月",
         "code": "PPI",
@@ -57,6 +253,7 @@
     },
     "A01070102": {
         "type": 2,
+        "stype": 2,
         "stat_type": 4,
         "tname": "上年同月",
         "code": "PPI",
@@ -65,6 +262,7 @@
     },
     "A01070201": {
         "type": 2,
+        "stype": 1,
         "stat_type": 5,
         "tname": "上年同期",
         "code": "PPI",
@@ -73,6 +271,7 @@
     },
     "A01070202": {
         "type": 2,
+        "stype": 2,
         "stat_type": 5,
         "tname": "上年同期",
         "code": "PPI",
@@ -81,6 +280,7 @@
     },
     "A01070301": {
         "type": 2,
+        "stype": 1,
         "stat_type": 6,
         "tname": "上月",
         "code": "PPI",
@@ -89,6 +289,7 @@
     },
     "A01070302": {
         "type": 2,
+        "stype": 2,
         "stat_type": 6,
         "tname": "上月",
         "code": "PPI",
@@ -97,6 +298,7 @@
     },
     "A0B0101": {
         "type": 3,
+        "stype": 1,
         "stat_type": 3,
         "tname": "月度",
         "code": "PMI",
@@ -105,6 +307,7 @@
     },
     "A0B0102": {
         "type": 3,
+        "stype": 2,
         "stat_type": 3,
         "tname": "月度",
         "code": "PMI",
@@ -113,46 +316,43 @@
     },
     "A0B0201": {
         "type": 3,
+        "stype": 21,
         "stat_type": 3,
         "tname": "月度",
         "code": "PMI",
         "name": "采购经理指数",
-        "subname": "非制造业采购经理指数"
+        "subname": "非制造业商务活动指数"
     },
     "A0B0202": {
         "type": 3,
+        "stype": 22,
         "stat_type": 3,
         "tname": "月度",
         "code": "PMI",
         "name": "采购经理指数",
-        "subname": "生产指数"
+        "subname": "非制造业新订单指数"
     },
     "A0B0301": {
         "type": 3,
+        "stype": 41,
         "stat_type": 3,
         "tname": "月度",
         "code": "PMI",
         "name": "采购经理指数",
         "subname": "综合PMI产出指数"
     },
-    "A0B0302": {
-        "type": 3,
-        "stat_type": 3,
-        "tname": "月度",
-        "code": "PMI",
-        "name": "采购经理指数",
-        "subname": "生产指数"
-    },
-    "A0D0101": {
+    "A0D0105": {
         "type": 4,
+        "stype": 1,
         "stat_type": 7,
         "tname": "期末值",
         "code": "M0",
         "name": "流通现金",
         "subname": "供应量"
     },
-    "A0D0102": {
+    "A0D0106": {
         "type": 4,
+        "stype": 2,
         "stat_type": 3,
         "tname": "月度",
         "code": "M0",
@@ -161,6 +361,7 @@
     },
     "A0D0103": {
         "type": 5,
+        "stype": 1,
         "stat_type": 7,
         "tname": "期末值",
         "code": "M1",
@@ -169,22 +370,25 @@
     },
     "A0D0104": {
         "type": 5,
+        "stype": 2,
         "stat_type": 3,
         "tname": "月度",
         "code": "M1",
         "name": "狭义货币",
         "subname": "增长率"
     },
-    "A0D0105": {
+    "A0D0101": {
         "type": 6,
+        "stype": 1,
         "stat_type": 3,
         "tname": "月度",
         "code": "M2",
         "name": "广义货币",
         "subname": "供应量"
     },
-    "A0D0106": {
+    "A0D0102": {
         "type": 6,
+        "stype": 2,
         "stat_type": 3,
         "tname": "月度",
         "code": "M2",

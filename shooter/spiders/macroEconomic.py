@@ -1,9 +1,7 @@
 import scrapy
 from urllib.parse import urlparse
 from urllib.parse import urlencode
-import urllib.parse
 import json
-import base64
 from scrapy_splash import SplashRequest
 # from scrapy_selenium import SeleniumRequest
 from playwright.async_api import async_playwright
@@ -47,7 +45,14 @@ class MacroeconomicSpider(scrapy.Spider):
     # https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"zb","valuecode":"A010201"}]&k1=1689258575825&h=1
     def start_requests(self):
         valuecodes = [
-            "A010101" # CPI
+            "A010101", # CPI
+            "A010201", # CPI
+            "A010301", # CPI
+            "A010701", # PPI
+            "A0B01", # PMI
+            "A0B02", # PMI
+            "A0B03", # PMI
+            "A0D01", # M0 M1 M2
         ]
         for code in valuecodes:
             # yield SplashRequest(url=url, callback=self.extract_data_parse, endpoint='execute', 
@@ -72,12 +77,13 @@ class MacroeconomicSpider(scrapy.Spider):
             #         "ignore_https_errors": True,
             #     },
             # })
+            time.sleep(1)
             yield scrapy.Request(url=url, callback=self.extract_json_parse)
 
 
     def extract_json_parse(self, response):
         jdata = json.loads(response.body.decode())
-        print (jdata)
+        # print (jdata)
         # return {"url":response.url}
         print(settings.get("MACRO_DATA_CONF"))
         if "returncode" in jdata and jdata["returncode"] == 200:
@@ -93,10 +99,12 @@ class MacroeconomicSpider(scrapy.Spider):
                     continue
                 print (self.macro_data_conf[code])
                 item = MacroStatDataItem()
+                item["table_name"] = "macro_stat_data"
                 item["name"] = "%s-%s" % (self.macro_data_conf[code]["name"], self.macro_data_conf[code]["subname"])
                 item["type"] = self.macro_data_conf[code]["type"]
+                item["stype"] = self.macro_data_conf[code]["stype"]
                 item["stat_type"] = self.macro_data_conf[code]["stat_type"]
-                item["stat_date"] = dcode
+                item["stat_date"] = "%s01" % dcode
                 item["value"] = data["data"]["data"]
                 yield item
 
