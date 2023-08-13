@@ -99,7 +99,8 @@ class MacroeconomicSpider(scrapy.Spider):
                     continue
                 print (self.macro_data_conf[code])
                 item = MacroStatDataItem()
-                item["table_name"] = "macro_stat_data"
+                item["table_name_"] = "macro_stat_data"
+                item["db_name_"] = "macro_data"
                 item["name"] = "%s-%s" % (self.macro_data_conf[code]["name"], self.macro_data_conf[code]["subname"])
                 item["type"] = self.macro_data_conf[code]["type"]
                 item["stype"] = self.macro_data_conf[code]["stype"]

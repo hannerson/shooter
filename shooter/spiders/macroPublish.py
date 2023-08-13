@@ -43,7 +43,8 @@ class MacropublishSpider(scrapy.Spider):
             for ctxt in contents:
                 ctxt = ctxt.strip()
                 item = MacroPubNoticeItem()
-                item["table_name"] = "macro_publish_notice"
+                item["table_name_"] = "macro_publish_notice"
+                item["db_name_"] = "macro_data"
                 item["content"] = ctxt
                 item["publish_date"] = t.strftime('%Y-%m-%d')
                 item["publish_datetime"] = t.strftime('%Y-%m-%d %H:%M:%S')

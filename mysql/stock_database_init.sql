@@ -33,3 +33,53 @@ create table if not exists `macro_publish_notice` (
     UNIQUE KEY `idx_dcontent` (`publish_date`, `content`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+create database if not exists `stock_data`;
+
+use `stock_data`;
+
+create table if not exists `company` (
+    `id` BIGINT unsigned AUTO_INCREMENT,
+    `code` varchar(64) NOT NULL DEFAULT '000000' comment '股票编码',
+    `name` varchar(256) NOT NULL DEFAULT '' comment '公司名称',
+    `ename` varchar(256) NOT NULL DEFAULT '' comment '公司英文名称',
+    `region` varchar(128) NOT NULL DEFAULT '' comment '所属地域',
+    `oname` varchar(256) NOT NULL DEFAULT '' comment '曾用名',
+    `main_business` text comment '主营业务',
+    `intro` text comment '公司介绍',
+    `address` varchar(256) NOT NULL DEFAULT '' comment '公司地址',
+    `chairman` varchar(64) NOT NULL DEFAULT '' comment '董事长',
+    `CEO` varchar(64) NOT NULL DEFAULT '' comment '总经理',
+    `registered_capital` double NOT NULL DEFAULT '0.0' comment '注册资本,单位万元',
+    `no_employees` int NOT NULL DEFAULT '0' comment '员工人数',
+    `sw_industry_name` varchar(128) NOT NULL DEFAULT '' comment '申万行业分类',
+    `zjh_industry_code` varchar(64) NOT NULL DEFAULT '0' comment '证监会行业分类',
+    `zjh_industry_name` varchar(128) NOT NULL DEFAULT '' comment '证监会行业分类',
+    `ths_industry_code` varchar(64) NOT NULL DEFAULT '0' comment '同花顺行业分类',
+    `ths_industry_name` varchar(128) NOT NULL DEFAULT '' comment '同花顺行业分类',
+    PRIMARY KEY (`id`),
+    INDEX `name` (`name`),
+    INDEX `zjh_code` (`zjh_industry_code`),
+    INDEX `ths_code` (`ths_industry_code`),
+    UNIQUE KEY `code` (`code`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+create table if not exists `stock_trade_info_day`(
+    `id` BIGINT unsigned AUTO_INCREMENT,
+    `code` varchar(64) NOT NULL DEFAULT '000000' comment '股票编码',
+    `tdate` date NOT NULL comment '行情日期',
+    `oprice` double NOT NULL DEFAULT '0.0' comment '开盘价',
+    `cprice` double NOT NULL DEFAULT '0.0' comment '收盘价',
+    `hprice` double NOT NULL DEFAULT '0.0' comment '最高价',
+    `lprice` double NOT NULL DEFAULT '0.0' comment '最低价',
+    `pb` double NOT NULL DEFAULT '0.0' comment '市净率',
+    `pe` double NOT NULL DEFAULT '0.0' comment '动态市盈率',
+    `tvalue` double NOT NULL DEFAULT '0.0' comment '总市值,单位亿',
+    `cvalue` double NOT NULL DEFAULT '0.0' comment '流通市值,单位亿',
+    `tamount` double NOT NULL DEFAULT '0.0' comment '成交量',
+    `tprice` double NOT NULL DEFAULT '0.0' comment '成交额',
+    `turnover` double NOT NULL DEFAULT '0.0' comment '换手率%',
+    PRIMARY KEY (`id`),
+    INDEX `code` (`code`),
+    UNIQUE KEY `tdate_code` (`tdate`, `code`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+

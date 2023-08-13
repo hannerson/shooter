@@ -12,13 +12,13 @@ BOT_NAME = "shooter"
 SPIDER_MODULES = ["shooter.spiders"]
 NEWSPIDER_MODULE = "shooter.spiders"
 
-# SPLASH_URL = 'http://localhost:8050'
+SPLASH_URL = 'http://localhost:8050'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "shooter (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -47,7 +47,7 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 SPIDER_MIDDLEWARES = {
 #    "shooter.middlewares.ShooterSpiderMiddleware": 543,
-#    'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
+   'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
 
 }
 
@@ -55,9 +55,9 @@ SPIDER_MIDDLEWARES = {
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
 #    "shooter.middlewares.ShooterDownloaderMiddleware": 543,
-    # 'scrapy_splash.SplashCookiesMiddleware': 723,
-    # 'scrapy_splash.SplashMiddleware': 725,
-    # 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+    'scrapy_splash.SplashCookiesMiddleware': 723,
+    'scrapy_splash.SplashMiddleware': 725,
+    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
 }
 
 # Enable or disable extensions
@@ -99,7 +99,9 @@ REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
-# DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
+DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
+HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
+
 DOWNLOAD_HANDLERS = {
     "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
     "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
@@ -107,6 +109,7 @@ DOWNLOAD_HANDLERS = {
 
 # macro database
 MYSQL_MACRO_DB_NAME = 'macro_data'
+MYSQL_STOCK_DB_NAME = 'stock_data'
 MYSQL_HOST = 'localhost'
 MYSQL_PORT = 3306
 MYSQL_USER = 'stock'
