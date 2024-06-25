@@ -10,6 +10,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import scoped_session
 from scrapy.utils.project import get_project_settings
+from pymysql.converters import escape_string
 import logging
 
 from shooter.items import MacroStatDataItem
@@ -27,10 +28,10 @@ class MysqlPipeline:
         self.sql_session_pools_ = {}
         self.engines_[settings.get("MYSQL_STOCK_DB_NAME")] = create_engine("mysql+pymysql://%s:%s@%s:%s/%s?charset=%s" % (settings.get("MYSQL_USER"),
             settings.get("MYSQL_PASSWORD"), settings.get("MYSQL_HOST"), settings.get("MYSQL_PORT"),
-            settings.get("MYSQL_STOCK_DB_NAME"), settings.get("MYSQL_CHARSET")), pool_size=5, pool_timeout=30)
+            settings.get("MYSQL_STOCK_DB_NAME"), settings.get("MYSQL_CHARSET")), pool_size=10, pool_timeout=30)
         self.engines_[settings.get("MYSQL_MACRO_DB_NAME")] = create_engine("mysql+pymysql://%s:%s@%s:%s/%s?charset=%s" % (settings.get("MYSQL_USER"),
             settings.get("MYSQL_PASSWORD"), settings.get("MYSQL_HOST"), settings.get("MYSQL_PORT"),
-            settings.get("MYSQL_MACRO_DB_NAME"), settings.get("MYSQL_CHARSET")), pool_size=5, pool_timeout=30)
+            settings.get("MYSQL_MACRO_DB_NAME"), settings.get("MYSQL_CHARSET")), pool_size=10, pool_timeout=30)
         for k,v in self.engines_.items():
             self.sql_session_pools_[k] = sessionmaker(bind=v)
         self.spider_name_ = None
@@ -50,13 +51,17 @@ class MysqlPipeline:
                 continue
             if k == "db_name_":
                 continue
-            sql_fields += "%s," % (k)
-            sql_values += "\"%s\"," % (v)
-            sql_update += "%s=\"%s\"," % (k, v)
+            sql_fields += "`%s`," % (k)
+            if isinstance(v, str):
+                sql_values += "\"%s\"," % (escape_string(v))
+                sql_update += "`%s`=\"%s\"," % (k, escape_string(v))
+            else:
+                sql_values += "\"%s\"," % (v)
+                sql_update += "`%s`=\"%s\"," % (k, v)
         sql_update = sql_update.strip(",")
         sql_fields = sql_fields.strip(",")
         sql_values = sql_values.strip(",")
-        sql = "insert into %s (%s) values (%s)" % (item["table_name_"], sql_fields, sql_values) + sql_update
+        sql = '''insert into %s (%s) values (%s)''' % (item["table_name_"], sql_fields, sql_values) + sql_update
         spider.log(sql, level=logging.INFO)
         sql_session = scoped_session(self.sql_session_pools_[item["db_name_"]])
         sql_session.execute(sql)

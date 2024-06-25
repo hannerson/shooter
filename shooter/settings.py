@@ -21,12 +21,12 @@ SPLASH_URL = 'http://localhost:8050'
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 4
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 3
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -58,6 +58,7 @@ DOWNLOADER_MIDDLEWARES = {
     'scrapy_splash.SplashCookiesMiddleware': 723,
     'scrapy_splash.SplashMiddleware': 725,
     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 550,
 }
 
 # Enable or disable extensions
@@ -117,11 +118,11 @@ MYSQL_PASSWORD = 'didi'
 MYSQL_CHARSET = 'utf8mb4'
 
 #LOG
-# import datetime
-# today = datetime.datetime.now()
-# log_file_path = "log/scrapy_{}_{}_{}.log".format(today.year, today.month, today.day)
-# LOG_LEVEL = 'INFO'
-# LOG_FILE = log_file_path
+import datetime
+today = datetime.datetime.now()
+log_file_path = "log/scrapy_{}_{}_{}.log".format(today.year, today.month, today.day)
+LOG_LEVEL = 'DEBUG'
+LOG_FILE = log_file_path
 
 # macro data config
 import json

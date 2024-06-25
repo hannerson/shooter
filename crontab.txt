@@ -1,0 +1,2 @@
+05 15 * * 1,2,3,4,5 USER=stock . /home/stock/.bash_profile; conda activate scrapy; /home/stock/shooter/run.sh > /home/stock/shooter/run.log 2>&1
+41 22 * * 1,2,3,4,5 USER=stock . /home/stock/.bash_profile; conda activate scrapy; /home/stock/shooter/run_eastmoney.sh > /home/stock/shooter/run_eastmoney.log 2>&1

@@ -37,6 +37,20 @@ create database if not exists `stock_data`;
 
 use `stock_data`;
 
+create table if not exists `company_code` (
+    `id` BIGINT unsigned AUTO_INCREMENT,
+    `code` varchar(64) NOT NULL DEFAULT '000000' comment '股票编码',
+    `name` varchar(64) NOT NULL DEFAULT '' comment '股票名称',
+    `zjh_industry_code` varchar(64) NOT NULL DEFAULT '0' comment '证监会行业分类',
+    `zjh_industry_name` varchar(128) NOT NULL DEFAULT '' comment '证监会行业分类',
+    `ths_industry_code` varchar(64) NOT NULL DEFAULT '0' comment '同花顺行业分类',
+    `ths_industry_name` varchar(128) NOT NULL DEFAULT '' comment '同花顺行业分类',
+    PRIMARY KEY (`id`),
+    INDEX `zjh_code` (`zjh_industry_code`),
+    INDEX `ths_code` (`ths_industry_code`),
+    UNIQUE KEY `code` (`code`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 create table if not exists `company` (
     `id` BIGINT unsigned AUTO_INCREMENT,
     `code` varchar(64) NOT NULL DEFAULT '000000' comment '股票编码',
@@ -66,6 +80,7 @@ create table if not exists `company` (
 create table if not exists `stock_trade_info_day`(
     `id` BIGINT unsigned AUTO_INCREMENT,
     `code` varchar(64) NOT NULL DEFAULT '000000' comment '股票编码',
+    `name` varchar(64) NOT NULL DEFAULT '' comment '股票名称',
     `tdate` date NOT NULL comment '行情日期',
     `oprice` double NOT NULL DEFAULT '0.0' comment '开盘价',
     `cprice` double NOT NULL DEFAULT '0.0' comment '收盘价',
@@ -78,6 +93,15 @@ create table if not exists `stock_trade_info_day`(
     `tamount` double NOT NULL DEFAULT '0.0' comment '成交量',
     `tprice` double NOT NULL DEFAULT '0.0' comment '成交额',
     `turnover` double NOT NULL DEFAULT '0.0' comment '换手率%',
+    `amplitude` double NOT NULL DEFAULT '0.0' comment '振幅%',
+    `change` double NOT NULL DEFAULT '0.0' comment '涨跌额',
+    `change_rate` double NOT NULL DEFAULT '0.0' comment '涨跌幅%',
+    `total_share` double NOT NULL DEFAULT '0.0' comment '总股本',
+    `free_share` double NOT NULL DEFAULT '0.0' comment '流通股本',
+    `peg` double NOT NULL DEFAULT '0.0' comment 'peg估值',
+    `pe_lyr` double NOT NULL DEFAULT '0.0' comment '静态市盈率, last year ratio',
+    `ps_ttm` double NOT NULL DEFAULT '0.0' comment '市销率',
+    `pcf_ocf_ttm` double NOT NULL DEFAULT '0.0' comment '市现率',
     PRIMARY KEY (`id`),
     INDEX `code` (`code`),
     UNIQUE KEY `tdate_code` (`tdate`, `code`)
